@@ -72,27 +72,24 @@ class basics:
 
 class styles:
     """Apply different styles to the input text."""
-
+    RESET = "\x1b[0m"
     def bolds(text):
-        return "\033[1m" + value + RESET
+        return "\033[1m" + text + RESET
 
     def italics(text):
-        return "\033[3m" + value + RESET
+        return "\033[3m" + text + RESET
 
     def faints(text):
-        return "\033[2m" + value + RESET
+        return "\033[2m" + text + RESET
 
     def underlines(text):
-        return "\033[4m" + value + RESET
+        return "\033[4m" + text + RESET
 
     def bold_and_underline(text):
         return "\033[1;4m" + value + RESET
 
     def strikethrough(text):
-        return "\033[9m" + value + RESET
+        return "\033[9m" + text + RESET
 
     def reverse(text):
-        return "\033[7m" + value + RESET
-
-
-print(f"{converter.HEXtoANSI('#606060')} Text {RESET}")
+        return "\033[7m" + text + RESET
