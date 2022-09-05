@@ -73,4 +73,19 @@ print(styles.bold(yellow)+"Some yellow text in bold"+RESET)
 
 You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`.
 
+## Additional features
+
+You can also use RGB to HEX converter or HEX to RGB by themselves like this:
+``` python
+>>>from ansiconverter import converter
+
+>>> print(converter.HEXtoRGB("#0b38c1"))
+[11, 59, 193])
+
+>>> print(converter.RGBtoHEX([11, 59, 193]))
+"#0b3bc1"
+```
+
+* * *
+
 **Note:** This repository is based on [Mark Smith](https://github.com/judy2k)'s talk available [here](https://youtu.be/GIF3LaRqgXo) and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)

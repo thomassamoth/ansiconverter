@@ -4,7 +4,7 @@ from ansiconverter import converter, styles
 
 # Tests for the converter module
 def test_RGBtoHEX():
-    assert converter.RGBtoHEX(13, 24, 128) == "#0d1880"
+    assert converter.RGBtoHEX([13, 24, 128]) == "#0d1880"
 
 
 def test_RGBtoANSI_blank_list():

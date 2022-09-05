@@ -59,8 +59,7 @@ class converter:
 
     # Utility to convert to other color format
 
-    def RGBtoHEX(Red, Green, Blue):
-        rgb = (Red, Green, Blue)
+    def RGBtoHEX(rgb=[255, 255, 255]):
         return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 
 
