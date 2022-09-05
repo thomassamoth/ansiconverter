@@ -41,4 +41,36 @@ print(f"{cv.HEXtoANSI('#f6cf6c')}Some yellow text{cv.RESET}")
 
 ```
 
-**Note :** This repository is based on [@judy2k](https://github.com/judy2k)'s talk available [here](https://youtu.be/GIF3LaRqgXo) and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
+### Styles module
+
+Write your text in different styles :
+
+* bold
+* italic
+* faint
+* underlined
+* bold & underlined
+* strikethrough
+* reversed
+
+```python
+
+from ansiconverter import styles
+
+print(styles.bold("Some text in bold"))
+```
+
+### Combination of colors and styles
+
+It is possible to combine text styles with colors by doing so:
+```python
+from ansiconverter import converter, styles
+
+yellow = converter.HEXtoANSI('#f6cf6c')
+
+print(styles.bold(yellow)+"Some yellow text in bold"+RESET)
+```
+
+You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`.
+
+**Note:** This repository is based on [Mark Smith](https://github.com/judy2k)'s talk available [here](https://youtu.be/GIF3LaRqgXo) and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
