@@ -6,6 +6,8 @@ RESET = "\x1b[0m"
 class converter:
     """ANSI conversions and an additional function to convert RGB to HEX."""
 
+    RESET = "\x1b[0m"
+
     def RGBtoANSI(foregound=[255, 255, 255], background=[]):
         """Convert a RGB color to ANSI code.
 
@@ -72,17 +74,19 @@ class basics:
 
 class styles:
     """Apply different styles to the input text."""
+
     RESET = "\x1b[0m"
-    def bolds(text):
+
+    def bold(text):
         return "\033[1m" + text + RESET
 
-    def italics(text):
-        return "\033[3m" + text + RESET
-
-    def faints(text):
+    def faint(text):
         return "\033[2m" + text + RESET
 
-    def underlines(text):
+    def italic(text):
+        return "\033[3m" + text + RESET
+
+    def underline(text):
         return "\033[4m" + text + RESET
 
     def bold_and_underline(text):
@@ -93,3 +97,7 @@ class styles:
 
     def reverse(text):
         return "\033[7m" + text + RESET
+
+
+class bootstrap_inpired:
+    pass
