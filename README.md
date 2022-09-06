@@ -1,5 +1,5 @@
 # ansiconverter  
-
+![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
 Convert any color to the ANSI format to write in colors in your terminal.
 
 ## Installation
@@ -63,12 +63,13 @@ print(styles.bold("Some text in bold"))
 ### Combination of colors and styles
 
 It is possible to combine text styles with colors by doing so:
+
 ```python
 from ansiconverter import converter, styles
 
 yellow = converter.HEXtoANSI('#f6cf6c')
 
-print(styles.bold(yellow)+"Some yellow text in bold"+RESET)
+print(styles.bold(yellow+"A text in yellow and bold"+styles.RESET))
 ```
 
 You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`.
@@ -76,6 +77,7 @@ You can replace `styles.bold()` by any function mentionned [above](#styles-modul
 ## Additional features
 
 You can also use RGB to HEX converter or HEX to RGB by themselves like this:
+
 ``` python
 >>>from ansiconverter import converter
 
