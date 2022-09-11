@@ -10,27 +10,28 @@ RESET = "\x1b[0m"
 
 
 def RGBtoANSI(
-    text,
+    text: str,
     foregound=[255, 255, 255],
     background=[],
 ):
-    """Convert a RGB color to ANSI code.
+    """Write a text in RGB color.
 
     Args:
-        foregound (list, optional): text's color. Defaults to [255, 255, 255] = white.
-        background (list, optional): background's color to highlight the text. Defaults to [].
+        text (str): the text you want to write.
+        foregound (list, optional): RGB foregound's color. Defaults to [255, 255, 255].
+        background (list, optional): RGB background's color. Defaults to [].
 
     Raises:
-        ValueError: the foregound color can't be an empty list
+        ValueError: the foregound color can't be an empty list.
 
     Returns:
-        string: the ANSI codes for the foregound and background colors.
+        string: the ANSI code for the foreground and the background.
     """
     if foregound != []:
         if background == []:
             return f"\x1B[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m{str(text)}{RESET}"
         else:
-            return f"\x1B[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m\x1B[48;2;{background[0]};{background[1]};{background[2]}m"
+            return f"\x1B[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m\x1B[48;2;{background[0]};{background[1]};{background[2]}m{str(text)}{RESET}"
     else:
         raise ValueError(
             "The foregound can't be an empty list!\nNo paramaters will write the text in write"
@@ -60,9 +61,10 @@ def HEXtoRGB(fg="#000000"):
             return 1
 
 
-def HEXtoANSI(hex_color):
-    RGB_list = HEXtoRGB(hex_color)
-    return RGBtoANSI(RGB_list)
+def HEXtoANSI(text, foreground, background):
+    foregroundRGB = HEXtoRGB(foreground)
+    backgroundRGB = HEXtoRGB(background)
+    return RGBtoANSI(text, foregroundRGB, backgroundRGB)
 
 
 # Utility to convert to other color format

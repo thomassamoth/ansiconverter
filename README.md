@@ -1,5 +1,5 @@
 # ansiconverter  
-
+[![GitHub](https://img.shields.io/github/license/thomassamoth/ansiconverter)(https://github.com/thomassamoth/ansiconverter/blob/main/LICENSE.md)] ![PyPI](https://img.shields.io/pypi/v/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 Convert any color to the ANSI format to write in colors in your terminal.
 
 ## Installation
