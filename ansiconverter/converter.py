@@ -1,4 +1,8 @@
-""" Convert any color to the ANSI format to write in colors in your terminal."""
+""" Convert any color to the ANSI format to write in colors in your terminal.
+Note: The conversion to an ANSI escape sequence may induce some color variations. 
+Also notice that some colors can't be mixed together as foreground and background.
+"""
+
 
 RESET = "\x1b[0m"
 
@@ -29,9 +33,9 @@ def RGBtoANSI(
     """
     if foregound != []:
         if background == []:
-            return f"\x1B[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m{str(text)}{RESET}"
+            return f"\033[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m{str(text)}{RESET}"
         else:
-            return f"\x1B[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m\x1B[48;2;{background[0]};{background[1]};{background[2]}m{str(text)}{RESET}"
+            return f"\033[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m\033[48;2;{background[0]};{background[1]};{background[2]}m{str(text)}{RESET}"
     else:
         raise ValueError(
             "The foregound can't be an empty list!\nNo paramaters will write the text in write"
@@ -61,10 +65,20 @@ def HEXtoRGB(fg="#000000"):
             return 1
 
 
-def HEXtoANSI(text, foreground, background):
+def HEXtoANSI(text, foreground="#ffffff", background=""):
+    from ansiconverter.converter import HEXtoRGB
+
     foregroundRGB = HEXtoRGB(foreground)
-    backgroundRGB = HEXtoRGB(background)
-    return RGBtoANSI(text, foregroundRGB, backgroundRGB)
+    if foreground != "":
+        if background != "":
+            backgroundRGB = HEXtoRGB(background)
+            print(foregroundRGB, backgroundRGB)
+            return RGBtoANSI(text, foregroundRGB, backgroundRGB)
+        else:
+            return RGBtoANSI(text, foregroundRGB)
+
+    else:
+        raise ValueError("Please enter at least one foreground color.")
 
 
 # Utility to convert to other color format
