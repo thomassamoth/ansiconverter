@@ -32,14 +32,17 @@ from ansiconverter.converter import RGBtoANSI
 print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], background=[255, 255, 255]))
 
 ```
+**Result:**
+
+<img src ="https://user-images.githubusercontent.com/25958977/190724022-a8b6e7cf-60e7-4493-9d9b-14b28be7268a.png" width=700 >
 
 #### Convert any *hexadecimal* colour to *ANSI*  
 
 > **Warning**  
-Some colour combinations are incompatible, and the result will be slightly different from what is expected.
+Some colour combinations are incompatible, and the result will be [slightly different](#convert-any-rgb-colour-to-ansi) from what is expected.
 
 ```python
-# How to print a yellow text on a navy blue background, with hexadeciaml values.
+# How to print a yellow text on a navy blue background, with hexadecimal values.
 from ansiconverter.converter import HEXtoANSI
 
 print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
@@ -51,7 +54,7 @@ print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 
 ### :art: Styles module
 
-Write your text in different styles :
+Write your text in different styles:
 
 * bold
 * italic
@@ -88,7 +91,7 @@ You can replace `styles.bold()` by any function mentionned [above](#styles-modul
 
 ## :heavy_plus_sign: Additional features
 
-You can also use *RGB to HEX converter* or *HEX to RGB* by themselves like this:
+You can also use ***RGB to HEX*** converter or ***HEX to RGB*** by themselves like this:
 
 ``` python
 >>> from ansiconverter import converter
