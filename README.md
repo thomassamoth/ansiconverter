@@ -2,6 +2,8 @@
 
 ![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
 
+![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
+
 Convert any color to the ANSI format to write in colors in your terminal.
 
 ## Installation
@@ -9,7 +11,7 @@ Convert any color to the ANSI format to write in colors in your terminal.
 Run this command to install `ansiconverter`:
 
 ```python
-pip install ansiconverter
+python -m pip install -U ansiconverter
 ```
 
 To install for **development**:
@@ -20,7 +22,7 @@ cd ansiconverter
 pip install -e .[dev]
 ```
 
-## Usage
+##  :computer: Usage
 
 ### Converter module
 
@@ -28,33 +30,24 @@ pip install -e .[dev]
 
 ```python
 # How to print a green text on a white background
-from ansiconverter import converter as cv
-
-print(
-    f"{cv.RGBtoANSI(foregound=[0, 255, 0], background=[255, 255, 255])} \
-      Green text on white background{cv.RESET}"
-    )
-
-# Alternative
-duo = cv.RGBtoANSI(foregound=[0, 255, 0], background=[255, 255, 255])
-
-print(f"{duo} Another green text on white bg {cv.RESET}")
+from ansiconverter.converter import RGBtoANSI
+print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], background=[255, 255, 255]))
 
 ```
 
 #### Convert any hexadecimal color to ANSI  
 
-> **Warning**: no background color available for now
+> **Note:** Some colour combinations are incompatible, and the result will be slightly different from what is expected.
 
 ```python
 # How to print a yellow text with its hexadeciaml value
-from ansiconverter import converter as cv
+from ansiconverter.converter import HEXtoANSI
 
-print(f"{cv.HEXtoANSI('#f6cf6c')}Some yellow text{cv.RESET}")
+print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 
 ```
 
-### Styles module
+### :art: Styles module
 
 Write your text in different styles :
 
@@ -68,7 +61,7 @@ Write your text in different styles :
 
 ```python
 
-from ansiconverter import styles
+from ansiconverter.styles import styles
 
 print(styles.bold("Some text in bold"))
 ```
@@ -78,17 +71,11 @@ print(styles.bold("Some text in bold"))
 It is possible to combine text styles with colors by doing so:
 
 ```python
-from ansiconverter import converter, styles
+from ansiconverter.converter import *
+from ansiconverter.styles import styles
 
-yellow = converter.HEXtoANSI('#f6cf6c')
+print(styles.bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 
-print(styles.bold(yellow+"A text in yellow,bold and italic"+styles.RESET))
-```
-
-You can even combine **different styles** with a color :
-
-```python
-print(styles.bold(styles.italic(yellow+"A text in yellow,bold and italic"+styles.RESET)))
 ```
 
 **Result:**  
@@ -97,12 +84,12 @@ print(styles.bold(styles.italic(yellow+"A text in yellow,bold and italic"+styles
 
 You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`.
 
-## Additional utilities
+## :heavy_plus_sign: Additional features
 
 You can also use RGB to HEX converter or HEX to RGB by themselves like this:
 
 ``` python
->>>from ansiconverter import converter
+>>> from ansiconverter import converter
 
 >>> print(converter.HEXtoRGB("#0b38c1"))
 [11, 59, 193])

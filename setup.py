@@ -1,22 +1,23 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
     name="ansiconverter",
-    version="0.0.2",
+    version="1.0.0",
     description="Convert any color in RGB or hexadecimal format to ANSI code",
-    license='MIT',
+    license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_modules=["ansiconverter"],
+    # py_packages=["ansiconverter","converter"],
+    packages=find_packages(),
     author="Thomas Beyet",
     author_email=None,
     url="https://github.com/thomassamoth/ansiconverter",
-    package_dir={"": "src"},
+    # package_dir={"": "ansiconverter"},
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -30,5 +31,8 @@ setup(
             "pytest>=3.6",
         ],
     },
-    project_urls={'source': 'http://github.com/thomassamoth/ansiconverter', }
+    project_urls={
+        "source": "http://github.com/thomassamoth/ansiconverter",
+    },
+    python_requires=">=3.6",
 )
