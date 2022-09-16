@@ -1,32 +1,22 @@
-""" Convert any color to the ANSI format to write in colors in your terminal.
-Note: The conversion to an ANSI escape sequence may induce some color variations. 
-Also notice that some colors can't be mixed together as foreground and background.
+""" Convert any colour to the ANSI format to write in colours in your terminal.
+Note: The conversion to an ANSI escape sequence may induce some colour variations. 
+Also notice that some colours can't be mixed together as foreground and background.
 """
 
 
 RESET = "\x1b[0m"
 
 
-# class converter:
-"""ANSI conversions and an additional function to convert RGB to HEX."""
-
-RESET = "\x1b[0m"
-
-
-def RGBtoANSI(
-    text: str,
-    foregound=[255, 255, 255],
-    background=[],
-):
-    """Write a text in RGB color.
+def RGBtoANSI(text: str, foregound=[255, 255, 255], background=[],):
+    """Write a text in RGB colour.
 
     Args:
         text (str): the text you want to write.
-        foregound (list, optional): RGB foregound's color. Defaults to [255, 255, 255].
-        background (list, optional): RGB background's color. Defaults to [].
+        foregound (list, optional): RGB foregound's colour. Defaults to [255, 255, 255].
+        background (list, optional): RGB background's colour. Defaults to [].
 
     Raises:
-        ValueError: the foregound color can't be an empty list.
+        ValueError: the foregound colour can't be an empty list.
 
     Returns:
         string: the ANSI code for the foreground and the background.
@@ -43,13 +33,13 @@ def RGBtoANSI(
 
 
 def HEXtoRGB(fg="#000000"):
-    """Convert a hexadecimal color to its RGB triplet.
+    """Convert a hexadecimal colour to its RGB triplet.
 
     Args:
-        fg (str, optional): Hexadecimal color value. Defaults to "#000000".
+        fg (str, optional): Hexadecimal colour value. Defaults to "#000000".
 
     Raises:
-        ValueError: The color is not a correct hexadecimal value.
+        ValueError: The colour is not a correct hexadecimal value.
 
     Returns:
         list: triplet of RGB values.
@@ -58,7 +48,7 @@ def HEXtoRGB(fg="#000000"):
     while True:
         foreground = fg.lstrip("#").lower()
         if len(foreground) == 6:
-            return list(int(foreground[i : i + 2], base=16) for i in (0, 2, 4))
+            return list(int(foreground[i: i + 2], base=16) for i in (0, 2, 4))
 
         else:
             raise ValueError("Enter a valid hexadecimal value")
@@ -72,20 +62,24 @@ def HEXtoANSI(text, foreground="#ffffff", background=""):
     if foreground != "":
         if background != "":
             backgroundRGB = HEXtoRGB(background)
-            print(foregroundRGB, backgroundRGB)
             return RGBtoANSI(text, foregroundRGB, backgroundRGB)
         else:
             return RGBtoANSI(text, foregroundRGB)
 
     else:
-        raise ValueError("Please enter at least one foreground color.")
-
-
-# Utility to convert to other color format
+        raise ValueError("Please enter at least one foreground colour.")
 
 
 def RGBtoHEX(rgb=[255, 255, 255]):
+    """Convert any RGB colour to hexadecimal.
+
+    Args:
+        rgb (list, optional): the colour you want to convert. Defaults to [255, 255, 255].
+
+    Returns:
+        string: colour's hexadecimal value
+    """
     if rgb != []:
         return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
     else:
-        raise (ValueError(f"The color can't be an empty list. Please retry."))
+        raise (ValueError(f"The colour can't be an empty list. Please retry."))
