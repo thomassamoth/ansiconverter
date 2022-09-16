@@ -2,9 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
 
-![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
-
-Convert any color to the ANSI format to write in colors in your terminal.
+Convert any colour to the ANSI format to write in colours in your terminal.
 
 ## Installation
 
@@ -24,9 +22,9 @@ pip install -e .[dev]
 
 ##  :computer: Usage
 
-### Converter module
+### :arrow_right: Converter module
 
-#### Convert any RGB color to ANSI
+#### Convert any *RGB* colour to *ANSI*  
 
 ```python
 # How to print a green text on a white background
@@ -35,17 +33,21 @@ print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], b
 
 ```
 
-#### Convert any hexadecimal color to ANSI  
+#### Convert any *hexadecimal* colour to *ANSI*  
 
-> **Note:** Some colour combinations are incompatible, and the result will be slightly different from what is expected.
+> **Warning**  
+Some colour combinations are incompatible, and the result will be slightly different from what is expected.
 
 ```python
-# How to print a yellow text with its hexadeciaml value
+# How to print a yellow text on a navy blue background, with hexadeciaml values.
 from ansiconverter.converter import HEXtoANSI
 
 print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 
 ```
+**Result**:
+
+<img src="https://user-images.githubusercontent.com/25958977/190716452-69a8f8df-6f2d-4a79-94c2-f601dc4b4466.png" width=700)>  
 
 ### :art: Styles module
 
@@ -66,9 +68,9 @@ from ansiconverter.styles import styles
 print(styles.bold("Some text in bold"))
 ```
 
-### Combination of colors and styles
+### Combination of colours and styles
 
-It is possible to combine text styles with colors by doing so:
+It is possible to combine text styles with colours by doing so:
 
 ```python
 from ansiconverter.converter import *
@@ -80,13 +82,13 @@ print(styles.bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 
 **Result:**  
 
-<img src="https://user-images.githubusercontent.com/25958977/188747345-e234fb0b-a0c5-4a97-8fc6-f0081b105799.png" height=50, width=650> 
+<img src="https://user-images.githubusercontent.com/25958977/190715961-3a3da6e1-bf9f-4011-8644-29c3efa4f263.png" width=700> 
 
-You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`.
+You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`. You can even **combine** different styles!
 
 ## :heavy_plus_sign: Additional features
 
-You can also use RGB to HEX converter or HEX to RGB by themselves like this:
+You can also use *RGB to HEX converter* or *HEX to RGB* by themselves like this:
 
 ``` python
 >>> from ansiconverter import converter
@@ -97,7 +99,7 @@ You can also use RGB to HEX converter or HEX to RGB by themselves like this:
 >>> print(converter.RGBtoHEX([11, 59, 193]))
 "#0b3bc1"
 ```
+#
 
-* * *
-
-**Note:** This repository is based on [Mark Smith](https://github.com/judy2k)'s talk available [here](https://youtu.be/GIF3LaRqgXo) and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
+> **Note**  
+This repository is based on [Mark Smith](https://github.com/judy2k)'s talk available [here](https://youtu.be/GIF3LaRqgXo) and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
