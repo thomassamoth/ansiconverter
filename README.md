@@ -1,10 +1,10 @@
-# ANSI Converter  
+# &#127744; ANSI Converter
 
 ![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter)
 
 Convert any colour to the ANSI format to write in colours in your terminal.
 
-## Installation
+## &#9000; Installation
 
 Run this command to install `ansiconverter`:
 
@@ -20,9 +20,9 @@ cd ansiconverter
 pip install -e .[dev]
 ```
 
-##  :computer: Usage
+##  &#128187; Usage
 
-### :arrow_right: Converter module
+### Converter module
 
 #### Convert any *RGB* colour to *ANSI*  
 
@@ -52,7 +52,7 @@ print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 
 <img src="https://user-images.githubusercontent.com/25958977/190716452-69a8f8df-6f2d-4a79-94c2-f601dc4b4466.png" width=700)>  
 
-### :art: Styles module
+### Styles module &#127912;
 
 Write your text in different styles:
 
@@ -71,7 +71,7 @@ from ansiconverter.styles import styles
 print(styles.bold("Some text in bold"))
 ```
 
-### Combination of colours and styles
+### &#9879; Combination of colours and styles
 
 It is possible to combine text styles with colours by doing so:
 
@@ -89,7 +89,7 @@ print(styles.bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 
 You can replace `styles.bold()` by any function mentionned [above](#styles-module) i.e. `styles.italic()`. You can even **combine** different styles!
 
-## :heavy_plus_sign: Additional features
+## &#10133; Additional features
 
 You can also use ***RGB to HEX*** converter or ***HEX to RGB*** by themselves like this:
 
