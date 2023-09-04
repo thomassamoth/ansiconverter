@@ -5,8 +5,8 @@ with open("README.md", "r") as f:
 
 setup(
     name="ansiconverter",
-    version="1.0.0",
-    description="Convert any color in RGB or hexadecimal format to ANSI code",
+    version="2.0.0",
+    description="Convert any colour, from RGB or hexadecimal format, to ANSI code.",
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -23,6 +23,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
