@@ -1,10 +1,9 @@
 from ansiconverter.converter import *
 
-
-class styles:
+class Styles:
     """Apply different styles to the input text.
 
-    Available :
+    Available:
         - bold
         - faint
         - italic
@@ -16,27 +15,31 @@ class styles:
 
     RESET = "\x1b[0m"
 
+    @staticmethod
     def bold(text):
-        return f"\033[1m{text}{styles.RESET}"
+        return f"\x1b[1m{text}{Styles.RESET}"
 
+    @staticmethod
     def faint(text):
-        return "\033[2m" + text + styles.RESET
+        return "\x1b[2m" + text + Styles.RESET
 
+    @staticmethod
     def italic(text):
-        return "\033[3m" + text + styles.RESET
+        return "\x1b[3m" + text + Styles.RESET
 
+    @staticmethod
     def underline(text):
-        return "\033[4m" + text + styles.RESET
+        return "\x1b[4m" + text + Styles.RESET
 
+    @staticmethod
     def bold_and_underline(text):
-        return "\033[1;4m" + value + styles.RESET
+        return "\x1b[1;4m" + text + Styles.RESET
 
+    @staticmethod
     def strikethrough(text):
-        return "\033[9m" + text + styles.RESET
+        return "\x1b[9m" + text + Styles.RESET
 
+    @staticmethod
     def reverse(text):
-        return "\033[7m" + text + styles.RESET
+        return "\x1b[7m" + text + Styles.RESET
 
-
-class bootstrap_inspired:
-    pass
