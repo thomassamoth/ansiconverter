@@ -1,6 +1,6 @@
-""" Convert any color to the ANSI format to write in colors in your terminal.
-Note: The conversion to an ANSI escape sequence may induce some color variations. 
-Also notice that some colors can't be mixed together as foreground and background.
+""" Convert any colour to the ANSI format to write in colours in your terminal.
+Note: The conversion to an ANSI escape sequence may induce some colour variations. 
+Also notice that some colours can't be mixed together as foreground and background.
 """
 
 

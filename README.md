@@ -52,6 +52,7 @@ python -m pytest test/
 from ansiconverter import RGBtoANSI
 print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], background=[255, 255, 255]))
 ```
+**Result:**
 
 **Result**:  
 <img src ="https://github.com/thomassamoth/ansiconverter/assets/25958977/76d6d253-4176-4891-adae-8df05e56d62f" height=50 >
@@ -67,6 +68,7 @@ print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], b
 from ansiconverter import HEXtoANSI
 print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 ```
+**Result**:
 
 **Result**:  
 <img src="https://github.com/thomassamoth/ansiconverter/assets/25958977/40954308-5be6-4e69-b8a8-c08a63224a03" height=50)>  
@@ -150,6 +152,7 @@ print(bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 ```python
 print(bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 ```
+#
 
 will work the same as
 
@@ -160,3 +163,6 @@ print(HEXtoANSI(bold('A yellow text in bold'),'#f6cf6c'))
 ## Note  
 
 This structure of this repository is based on a talk by [Mark Smith](https://github.com/judy2k), which is available [here](https://youtu.be/GIF3LaRqgXo), and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
+
+## License
+This repository is licensed under the MIT license. See the [LICENSE](LICENSE.md) file for more information.
