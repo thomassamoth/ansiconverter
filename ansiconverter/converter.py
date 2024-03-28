@@ -12,8 +12,8 @@ class Converter:
     @staticmethod
     def RGBtoANSI(
         text: str,
-        foregound=[255, 255, 255],
-        background=[],
+        foregound=None,
+        background=None,
     ):
         """Write a text in RGB color.
 
@@ -28,6 +28,8 @@ class Converter:
         Returns:
             string: the ANSI code for the foreground and the background.
         """
+        foregound = [255, 255, 255] if foregound is None else foregound
+        background = [] if background is None else background
         if foregound != []:
             if background == []:
                 return f"\033[38;2;{foregound[0]};{foregound[1]};{foregound[2]}m{str(text)}{Converter.RESET}"
@@ -78,7 +80,8 @@ class Converter:
 
     @staticmethod
     # Utility to convert to other color format
-    def RGBtoHEX(rgb=[255, 255, 255]):
+    def RGBtoHEX(rgb=None):
+        rgb = [255, 255, 255] if rgb is None else rgb
         if rgb != []:
             return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
         else:
