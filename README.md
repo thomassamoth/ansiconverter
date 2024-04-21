@@ -1,6 +1,6 @@
 # &#127744; ANSI Converter
 
-![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter)  ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://makeapullrequest.com) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Linux](https://img.shields.io/badge/-Linux-orange?logo=linux) ![PyPI](https://img.shields.io/pypi/v/ansiconverter) ![PyPI - License](https://img.shields.io/pypi/l/ansiconverter)  ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ansiconverter) ![PyPI - Status](https://img.shields.io/pypi/status/ansiconverter) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://makeapullrequest.com) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Convert any colour to the [ANSI format](https://en.wikipedia.org/wiki/ANSI_escape_code) to write in colours in your terminal.
 
@@ -31,7 +31,7 @@ To ensure the installation of this package has been successful, you can run the 
 pip install pytest
 ```
 
-2. After you downloaded the code and installed the package, run the tests by executing:
+2. After you have downloaded the code and installed the package, run the tests by executing:
 
 ```bash
 python -m pytest test/
@@ -50,9 +50,8 @@ python -m pytest test/
 ```python
 # How to print a green text on a white background
 from ansiconverter import RGBtoANSI
-print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], background=[255, 255, 255]))
+print(RGBtoANSI(text='Green text on a white background',foregound=(0, 255, 0), background=(255, 255, 255)))
 ```
-**Result:**
 
 **Result**:  
 <img src ="https://github.com/thomassamoth/ansiconverter/assets/25958977/76d6d253-4176-4891-adae-8df05e56d62f" height=50 >
@@ -68,14 +67,10 @@ print(RGBtoANSI(text='Green text on a white background',foregound=[0, 255, 0], b
 from ansiconverter import HEXtoANSI
 print(HEXtoANSI('Some yellow text on blue background','#fdf31f', '000080'))
 ```
-**Result**:
 
 **Result**:  
 <img src="https://github.com/thomassamoth/ansiconverter/assets/25958977/40954308-5be6-4e69-b8a8-c08a63224a03" height=50)>  
 </details>
-
-> &#8505;&#65039; **Note**  
-> Another little tool has been added to convert RGB to hexadecimal and vice versa. It can't be used to write in color in the terminal but could be useful for other applications.
 
 <details>
 <summary>
@@ -89,7 +84,7 @@ print(HEXtoRGB("#0b38c1"))
 
 **Result** :
 ```python
-[11, 59, 193]
+(11, 59, 193)
 ```
 </details>
 
@@ -101,7 +96,7 @@ print(HEXtoRGB("#0b38c1"))
 
 ```python
 from ansiconverter import RGBtoHEX
-print(RGBtoHEX([11, 59, 193]))
+print(RGBtoHEX((11, 59, 193)))
 ```
 
 **Result** :
@@ -109,6 +104,10 @@ print(RGBtoHEX([11, 59, 193]))
 "#0b3bc1"
 ```
 </details>
+
+> &#8505;&#65039; **Note**    
+> Another little tool has been added to convert RGB to hexadecimal and vice versa. It can't be used to write in colour in the terminal but could be useful for other applications.  
+
 <hr/>
 
 ### &#127912; Styles module 
@@ -131,13 +130,13 @@ from ansiconverter import bold
 
 print(bold("Some text in bold"))
 ```
-Replace `.bold` in the example with any method above to get the desired style.  
+Replace `bold()` in the example with any method above to get the desired style.  
 
 <hr/>
 
 ### Combination of colours and styles
 
- &#9879;&#65039; It is possible to combine text styles with colours by doing so:
+ &#9879;&#65039; It's also possible to combine text styles with colours:
 
 ```python
 from ansiconverter import HEXtoANSI, bold
@@ -147,12 +146,11 @@ print(bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 **Result:**  
 <img src="https://github.com/thomassamoth/ansiconverter/assets/25958977/4936657f-a536-497e-b8da-4df1d8f53813"  height=50> 
 
-**N.B**: the order between the style and the text format isn't important and you can switch them.
+**N.B**: the order between the style and the text format *isn't* important and you can switch them, e.g.:
 
 ```python
 print(bold(HEXtoANSI('A yellow text in bold','#f6cf6c')))
 ```
-#
 
 will work the same as
 
@@ -162,7 +160,7 @@ print(HEXtoANSI(bold('A yellow text in bold'),'#f6cf6c'))
 
 ## Note  
 
-This structure of this repository is based on a talk by [Mark Smith](https://github.com/judy2k), which is available [here](https://youtu.be/GIF3LaRqgXo), and its [linked repository](https://github.com/judy2k/publishing_python_packages_talk)
+The structure of this repository is based on a talk by [Mark Smith](https://github.com/judy2k), which is available [here](https://youtu.be/GIF3LaRqgXo), and the [repo](https://github.com/judy2k/publishing_python_packages_talk) linked with the video.
 
 ## License
 This repository is licensed under the MIT license. See the [LICENSE](LICENSE.md) file for more information.

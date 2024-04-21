@@ -7,12 +7,12 @@ class TestsConverter:
 
     def test_RGBtoHEX_valid_input(self):
         """Test the conversion from RGB to HEX with a correct list of colours"""
-        assert RGBtoHEX([13, 24, 128]) == "#0d1880"
+        assert RGBtoHEX((13, 24, 128)) == "#0d1880"
 
     def test_RGBtoANSI_blank_list(self):
         """Test the conversion from RGB to ANSI with no argument. It should raise an error"""
         with pytest.raises(ValueError) as e_info:
-            RGBtoANSI("text", [])
+            RGBtoANSI("text", ())
 
     def test_RGBtoANSI_valid_input(self):
         """Test RGB to ANSI with a valid text"""
@@ -20,7 +20,7 @@ class TestsConverter:
 
     def test_HEXtoRGB_valid_input(self):
         """Test from HEX to RGB with a correct string"""
-        assert HEXtoRGB("#1b815a") == [27, 129, 90]
+        assert HEXtoRGB("#1b815a") == (27, 129, 90)
 
     def test_HEXtoRGB_shorter_value(self):
         """Test from HEX to RGB with string shorter than 6 characters"""
@@ -34,10 +34,10 @@ class TestsConverter:
 
     def test_HEXtoRGB_2_sharp(self):
         """Test from HEX to RGB with 2 # entered (i.e after a copy/paste)"""
-        assert HEXtoRGB("##1b815a") == [27, 129, 90]
+        assert HEXtoRGB("##1b815a") == (27, 129, 90)
         
     def test_RGBtoANSI_background(self):
-        assert RGBtoANSI("Test", [0, 10, 24], [255, 255, 255]) == f"\033[38;2;{0};{10};{24}m\033[48;2;{255};{255};{255}mTest\x1b[0m"
+        assert RGBtoANSI("Test", (0, 10, 24), (255, 255, 255)) == f"\033[38;2;{0};{10};{24}m\033[48;2;{255};{255};{255}mTest\x1b[0m"
 
     def test_HEXtoANSI_valid_input(self):
         assert HEXtoANSI("Test HEX to ANSI", "#fdd374")
@@ -71,6 +71,6 @@ class TestsStyles:
         assert reverse("Test reverse") == "\x1b[7mTest reverse\x1b[0m"
 
     def test_styles_combinations(self):
-        assert HEXtoRGB("fef86c") == [254, 248, 108]
+        assert HEXtoRGB("fef86c") == (254, 248, 108)
         assert bold(HEXtoANSI("Yellow", 'fef86c')) == '\x1b[1m\x1b[38;2;254;248;108mYellow\x1b[0m\x1b[0m'
         assert HEXtoANSI(bold("Yellow"), 'fef86c') == '\x1b[38;2;254;248;108m\x1b[1mYellow\x1b[0m\x1b[0m'
