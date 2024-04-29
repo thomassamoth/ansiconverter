@@ -109,4 +109,4 @@ class Converter:
             # Convert to hexadecimal
             return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
         else:
-            raise ValueError(f"The colour can't be empty. Please retry.")
+            raise ValueError("The colour can't be empty. Please retry.")
