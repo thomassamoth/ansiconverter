@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "ansiconverter"
+version = "2.1.0"
+description = "Convert any colour, from RGB or hexadecimal format, to ANSI code."
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+keywords = ["colour-converter", "ansi-converter","rgb-converter", "hexadecimal-converter"]
+authors = [{name = "Thomas Beyet"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/thomassamoth/ansiconverter"
+"Source" = "http://github.com/thomassamoth/ansiconverter"
+
+[project.optional-dependencies]
+dev = ["pytest>=3.6"]
+
+[tool.setuptools]
+py-modules = []
